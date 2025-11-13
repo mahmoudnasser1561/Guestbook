@@ -3,32 +3,32 @@ kind: Deployment
 metadata:
   name: guestbook
   labels:
-    app: guestbook 
+    app: guestbook
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: guestbook
   strategy:
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       labels:
         app: guestbook
     spec:
       containers:
-      - image: guestbook-app:latest
-        imagePullPolicy: IfNotPresent
-        name: guestbook
+      - name: guestbook
+        image: mahmoudnasser8080/guestbook-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
           name: http
         resources:
           limits:
-            cpu: 50m
+            cpu: "50m"
           requests:
-            cpu: 20m
+            cpu: "20m"
 
