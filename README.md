@@ -36,7 +36,9 @@ This project demonstrates deploying a **Go-based Guestbook app** to Kubernetes u
 
 
 
-
+## Future Improvements
+- Monitor pods with Prometheus/Grafana
+- CI/CD pipeline for automatic Docker builds & K8s deployment
 
 
 
